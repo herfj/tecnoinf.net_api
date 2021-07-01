@@ -1,0 +1,34 @@
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.csprojAssemblyReference.cache
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\BusinessLogic.dll.config
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\Common.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\Resistencia.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\Common.pdb
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\Resistencia.pdb
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\Resistencia.dll.config
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\EntityFramework.xml
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.csproj.CopyComplete
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\BusinessLogic.dll.config
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\Common.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\EntityFramework.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\Resistencia.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\Common.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\Resistencia.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\Resistencia.dll.config
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\EntityFramework.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.csprojAssemblyReference.cache
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.csproj.CopyComplete
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.pdb

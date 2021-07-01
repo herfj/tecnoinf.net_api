@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ee3cb8849fb64341abe975b4a7b710e2" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="design_proModel.Categoria" Width="1.5" PointX="9" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Comentarios" Width="1.5" PointX="10.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Etiquetas" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Herramientas" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Mensajes" Width="1.5" PointX="10.5" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Pages" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Portfolio" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Proyecto" Width="1.5" PointX="6" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Proyecto_categorias" Width="1.5" PointX="11.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Usuarios" Width="1.5" PointX="8.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="design_proModel.Visual" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="design_proModel.FK_Proyecto_categorias_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Comentarios_Proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Comentarios_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Etiquetas_Proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Herramientas_Proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Mensajes_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Mensajes_Usuarios1" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Pages_Portfolio" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Portfolio_Proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Proyecto_Portfolio" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Proyecto_categorias_Proyecto" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Proyecto_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.Seguir" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.Valoraciones" ManuallyRouted="false" />
+        <AssociationConnector Association="design_proModel.FK_Pages_Visual" />
+        <AssociationConnector Association="design_proModel.FK_Proyecto_Visual" />
+        <AssociationConnector Association="design_proModel.FK_Usuarios_Visual" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

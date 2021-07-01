@@ -1,0 +1,6 @@
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Common\bin\Debug\Common.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Common\bin\Debug\Common.pdb
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Common\obj\Debug\Common.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Common\obj\Debug\Common.pdb

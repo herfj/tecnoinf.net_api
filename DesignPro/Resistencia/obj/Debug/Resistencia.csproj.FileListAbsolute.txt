@@ -1,0 +1,36 @@
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\bin\Debug\Resistencia.dll.config
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\bin\Debug\Resistencia.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\bin\Debug\Resistencia.pdb
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\bin\Debug\EntityFramework.xml
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\obj\Debug\Resistencia.csprojAssemblyReference.cache
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CopyComplete
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\obj\Debug\Resistencia.dll
+C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Resistencia\obj\Debug\Resistencia.pdb
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\bin\Debug\Resistencia.dll.config
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\bin\Debug\Resistencia.dll
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\bin\Debug\Resistencia.pdb
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\bin\Debug\EntityFramework.xml
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\obj\Debug\Resistencia.csprojAssemblyReference.cache
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CopyComplete
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\obj\Debug\Resistencia.dll
+C:\Users\Administrador\Downloads\api-net-main\DesignPro\Resistencia\obj\Debug\Resistencia.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\bin\Debug\Resistencia.dll.config
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\bin\Debug\Resistencia.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\bin\Debug\Resistencia.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csprojAssemblyReference.cache
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CoreCompileInputs.cache
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CopyComplete
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.pdb

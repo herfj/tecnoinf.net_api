@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="design_proModelStoreContainer" CdmEntityContainer="design_proEntities">
+    <EntitySetMapping Name="Categoria">
+      <EntityTypeMapping TypeName="design_proModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comentarios">
+      <EntityTypeMapping TypeName="design_proModel.Comentarios">
+        <MappingFragment StoreEntitySet="Comentarios">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Cuerpo" ColumnName="Cuerpo" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etiquetas">
+      <EntityTypeMapping TypeName="design_proModel.Etiquetas">
+        <MappingFragment StoreEntitySet="Etiquetas">
+          <ScalarProperty Name="Titulo_proyecto" ColumnName="Titulo_proyecto" />
+          <ScalarProperty Name="Etiquetas1" ColumnName="Etiquetas" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Herramientas">
+      <EntityTypeMapping TypeName="design_proModel.Herramientas">
+        <MappingFragment StoreEntitySet="Herramientas">
+          <ScalarProperty Name="Titulo_proyecto" ColumnName="Titulo_proyecto" />
+          <ScalarProperty Name="Herramienta" ColumnName="Herramienta" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mensajes">
+      <EntityTypeMapping TypeName="design_proModel.Mensajes">
+        <MappingFragment StoreEntitySet="Mensajes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Cuerpo" ColumnName="Cuerpo" />
+          <ScalarProperty Name="Visto" ColumnName="Visto" />
+          <ScalarProperty Name="Emisor" ColumnName="Emisor" />
+          <ScalarProperty Name="Remitente" ColumnName="Remitente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="design_proModel.Pages">
+        <MappingFragment StoreEntitySet="Pages">
+          <ScalarProperty Name="ID_Visual" ColumnName="ID_Visual" />
+          <ScalarProperty Name="ID_Portfolio" ColumnName="ID_Portfolio" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Portfolio">
+      <EntityTypeMapping TypeName="design_proModel.Portfolio">
+        <MappingFragment StoreEntitySet="Portfolio">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Titulo_Proyecto" ColumnName="Titulo_Proyecto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proyecto">
+      <EntityTypeMapping TypeName="design_proModel.Proyecto">
+        <MappingFragment StoreEntitySet="Proyecto">
+          <ScalarProperty Name="Portada" ColumnName="Portada" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Vistas" ColumnName="Vistas" />
+          <ScalarProperty Name="Fecha_publicada" ColumnName="Fecha_publicada" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="ID_Portfolio" ColumnName="ID_Portfolio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proyecto_categorias">
+      <EntityTypeMapping TypeName="design_proModel.Proyecto_categorias">
+        <MappingFragment StoreEntitySet="Proyecto_categorias">
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Titulo_proyecto" ColumnName="Titulo_proyecto" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="design_proModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+          <ScalarProperty Name="Fecha_nac" ColumnName="Fecha_nac" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ID_Visual" ColumnName="ID_Visual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visual">
+      <EntityTypeMapping TypeName="design_proModel.Visual">
+        <MappingFragment StoreEntitySet="Visual">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Seguir" TypeName="design_proModel.Seguir" StoreEntitySet="Seguir">
+      <EndProperty Name="Usuarios">
+        <ScalarProperty Name="Email" ColumnName="Seguido" />
+      </EndProperty>
+      <EndProperty Name="Usuarios1">
+        <ScalarProperty Name="Email" ColumnName="Seguidor" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Valoraciones" TypeName="design_proModel.Valoraciones" StoreEntitySet="Valoraciones">
+      <EndProperty Name="Proyecto">
+        <ScalarProperty Name="Titulo" ColumnName="Titulo_Proyecto" />
+      </EndProperty>
+      <EndProperty Name="Usuarios">
+        <ScalarProperty Name="Email" ColumnName="Usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="design_proModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Proyecto_categorias" Relationship="Self.FK_Proyecto_categorias_Categoria" FromRole="Categoria" ToRole="Proyecto_categorias" />
+  </EntityType>
+  <EntityType Name="Comentarios">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cuerpo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Proyecto1" Relationship="Self.FK_Comentarios_Proyecto" FromRole="Comentarios" ToRole="Proyecto" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Comentarios_Usuarios" FromRole="Comentarios" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Etiquetas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Titulo_proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Etiquetas1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Proyecto" Relationship="Self.FK_Etiquetas_Proyecto" FromRole="Etiquetas" ToRole="Proyecto" />
+  </EntityType>
+  <EntityType Name="Herramientas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Titulo_proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Herramienta" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Proyecto" Relationship="Self.FK_Herramientas_Proyecto" FromRole="Herramientas" ToRole="Proyecto" />
+  </EntityType>
+  <EntityType Name="Mensajes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cuerpo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Visto" Type="Int16" Nullable="false" />
+    <Property Name="Emisor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Remitente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Mensajes_Usuarios" FromRole="Mensajes" ToRole="Usuarios" />
+    <NavigationProperty Name="Usuarios1" Relationship="Self.FK_Mensajes_Usuarios1" FromRole="Mensajes" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Pages">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID_Visual" Type="Int32" />
+    <Property Name="ID_Portfolio" Type="Int32" Nullable="false" />
+    <Property Name="Contenido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Portfolio" Relationship="Self.FK_Pages_Portfolio" FromRole="Pages" ToRole="Portfolio" />
+    <NavigationProperty Name="Visual" Relationship="design_proModel.FK_Pages_Visual" FromRole="Pages" ToRole="Visual" />
+  </EntityType>
+  <EntityType Name="Portfolio">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo_Proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pages" Relationship="Self.FK_Pages_Portfolio" FromRole="Portfolio" ToRole="Pages" />
+    <NavigationProperty Name="Proyecto" Relationship="Self.FK_Portfolio_Proyecto" FromRole="Portfolio" ToRole="Proyecto" />
+    <NavigationProperty Name="Proyecto1" Relationship="Self.FK_Proyecto_Portfolio" FromRole="Portfolio" ToRole="Proyecto" />
+  </EntityType>
+  <EntityType Name="Proyecto">
+    <Key>
+      <PropertyRef Name="Titulo" />
+    </Key>
+    <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Vistas" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_publicada" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Autor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_Portfolio" Type="Int32" />
+    <NavigationProperty Name="Comentarios" Relationship="Self.FK_Comentarios_Proyecto" FromRole="Proyecto" ToRole="Comentarios" />
+    <NavigationProperty Name="Etiquetas" Relationship="Self.FK_Etiquetas_Proyecto" FromRole="Proyecto" ToRole="Etiquetas" />
+    <NavigationProperty Name="Herramientas" Relationship="Self.FK_Herramientas_Proyecto" FromRole="Proyecto" ToRole="Herramientas" />
+    <NavigationProperty Name="Portfolio" Relationship="Self.FK_Portfolio_Proyecto" FromRole="Proyecto" ToRole="Portfolio" />
+    <NavigationProperty Name="Portfolio1" Relationship="Self.FK_Proyecto_Portfolio" FromRole="Proyecto" ToRole="Portfolio" />
+    <NavigationProperty Name="Proyecto_categorias" Relationship="Self.FK_Proyecto_categorias_Proyecto" FromRole="Proyecto" ToRole="Proyecto_categorias" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Proyecto_Usuarios" FromRole="Proyecto" ToRole="Usuarios" />
+    <NavigationProperty Name="Usuarios1" Relationship="Self.Valoraciones" FromRole="Proyecto" ToRole="Usuarios" />
+    <Property Name="Portada" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Visual" Relationship="design_proModel.FK_Proyecto_Visual" FromRole="Proyecto" ToRole="Visual" />
+  </EntityType>
+  <EntityType Name="Proyecto_categorias">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Categoria" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Titulo_proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Categoria1" Relationship="Self.FK_Proyecto_categorias_Categoria" FromRole="Proyecto_categorias" ToRole="Categoria" />
+    <NavigationProperty Name="Proyecto" Relationship="Self.FK_Proyecto_categorias_Proyecto" FromRole="Proyecto_categorias" ToRole="Proyecto" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Nullable="false" Unicode="false" />
+    <Property Name="Profesion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha_nac" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Empresa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="URL" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Visual" Type="Int32" />
+    <NavigationProperty Name="Comentarios" Relationship="Self.FK_Comentarios_Usuarios" FromRole="Usuarios" ToRole="Comentarios" />
+    <NavigationProperty Name="Mensajes" Relationship="Self.FK_Mensajes_Usuarios" FromRole="Usuarios" ToRole="Mensajes" />
+    <NavigationProperty Name="Mensajes1" Relationship="Self.FK_Mensajes_Usuarios1" FromRole="Usuarios" ToRole="Mensajes" />
+    <NavigationProperty Name="Proyecto" Relationship="Self.FK_Proyecto_Usuarios" FromRole="Usuarios" ToRole="Proyecto" />
+    <NavigationProperty Name="Usuarios1" Relationship="Self.Seguir" FromRole="Usuarios" ToRole="Usuarios1" />
+    <NavigationProperty Name="Usuarios2" Relationship="Self.Seguir" FromRole="Usuarios1" ToRole="Usuarios" />
+    <NavigationProperty Name="Proyecto1" Relationship="Self.Valoraciones" FromRole="Usuarios" ToRole="Proyecto" />
+    <NavigationProperty Name="Visual" Relationship="design_proModel.FK_Usuarios_Visual" FromRole="Usuarios" ToRole="Visual" />
+  </EntityType>
+  <EntityType Name="Visual">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Pages" Relationship="design_proModel.FK_Pages_Visual" FromRole="Visual" ToRole="Pages" />
+    <NavigationProperty Name="Proyecto" Relationship="design_proModel.FK_Proyecto_Visual" FromRole="Visual" ToRole="Proyecto" />
+    <NavigationProperty Name="Usuarios" Relationship="design_proModel.FK_Usuarios_Visual" FromRole="Visual" ToRole="Usuarios" />
+  </EntityType>
+  <Association Name="FK_Proyecto_categorias_Categoria">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="Proyecto_categorias" Type="Self.Proyecto_categorias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="Nombre" />
+      </Principal>
+      <Dependent Role="Proyecto_categorias">
+        <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comentarios_Proyecto">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+    <End Role="Comentarios" Type="Self.Comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Titulo" />
+      </Principal>
+      <Dependent Role="Comentarios">
+        <PropertyRef Name="Proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comentarios_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Comentarios" Type="Self.Comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="Comentarios">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Etiquetas_Proyecto">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+    <End Role="Etiquetas" Type="Self.Etiquetas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Titulo" />
+      </Principal>
+      <Dependent Role="Etiquetas">
+        <PropertyRef Name="Titulo_proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Herramientas_Proyecto">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+    <End Role="Herramientas" Type="Self.Herramientas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Titulo" />
+      </Principal>
+      <Dependent Role="Herramientas">
+        <PropertyRef Name="Titulo_proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mensajes_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="Mensajes">
+        <PropertyRef Name="Remitente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mensajes_Usuarios1">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="Mensajes">
+        <PropertyRef Name="Emisor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pages_Portfolio">
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="1" />
+    <End Role="Pages" Type="Self.Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolio">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pages">
+        <PropertyRef Name="ID_Portfolio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Portfolio_Proyecto">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Titulo" />
+      </Principal>
+      <Dependent Role="Portfolio">
+        <PropertyRef Name="Titulo_Proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proyecto_Portfolio">
+    <End Role="Portfolio" Type="Self.Portfolio" Multiplicity="0..1" />
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Portfolio">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Proyecto">
+        <PropertyRef Name="ID_Portfolio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proyecto_categorias_Proyecto">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+    <End Role="Proyecto_categorias" Type="Self.Proyecto_categorias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Titulo" />
+      </Principal>
+      <Dependent Role="Proyecto_categorias">
+        <PropertyRef Name="Titulo_proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proyecto_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="Proyecto">
+        <PropertyRef Name="Autor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Seguir">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <End Role="Usuarios1" Type="Self.Usuarios" Multiplicity="*" />
+  </Association>
+  <Association Name="Valoraciones">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="design_proEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+    <EntitySet Name="Comentarios" EntityType="Self.Comentarios" />
+    <EntitySet Name="Etiquetas" EntityType="Self.Etiquetas" />
+    <EntitySet Name="Herramientas" EntityType="Self.Herramientas" />
+    <EntitySet Name="Mensajes" EntityType="Self.Mensajes" />
+    <EntitySet Name="Pages" EntityType="Self.Pages" />
+    <EntitySet Name="Portfolio" EntityType="Self.Portfolio" />
+    <EntitySet Name="Proyecto" EntityType="Self.Proyecto" />
+    <EntitySet Name="Proyecto_categorias" EntityType="Self.Proyecto_categorias" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <EntitySet Name="Visual" EntityType="Self.Visual" />
+    <AssociationSet Name="FK_Proyecto_categorias_Categoria" Association="Self.FK_Proyecto_categorias_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Proyecto_categorias" EntitySet="Proyecto_categorias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comentarios_Proyecto" Association="Self.FK_Comentarios_Proyecto">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="Comentarios" EntitySet="Comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comentarios_Usuarios" Association="Self.FK_Comentarios_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Comentarios" EntitySet="Comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Etiquetas_Proyecto" Association="Self.FK_Etiquetas_Proyecto">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="Etiquetas" EntitySet="Etiquetas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Herramientas_Proyecto" Association="Self.FK_Herramientas_Proyecto">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="Herramientas" EntitySet="Herramientas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mensajes_Usuarios" Association="Self.FK_Mensajes_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Mensajes" EntitySet="Mensajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mensajes_Usuarios1" Association="Self.FK_Mensajes_Usuarios1">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Mensajes" EntitySet="Mensajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pages_Portfolio" Association="Self.FK_Pages_Portfolio">
+      <End Role="Portfolio" EntitySet="Portfolio" />
+      <End Role="Pages" EntitySet="Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Portfolio_Proyecto" Association="Self.FK_Portfolio_Proyecto">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="Portfolio" EntitySet="Portfolio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proyecto_Portfolio" Association="Self.FK_Proyecto_Portfolio">
+      <End Role="Portfolio" EntitySet="Portfolio" />
+      <End Role="Proyecto" EntitySet="Proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proyecto_categorias_Proyecto" Association="Self.FK_Proyecto_categorias_Proyecto">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="Proyecto_categorias" EntitySet="Proyecto_categorias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proyecto_Usuarios" Association="Self.FK_Proyecto_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Proyecto" EntitySet="Proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="Seguir" Association="Self.Seguir">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Usuarios1" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="Valoraciones" Association="Self.Valoraciones">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pages_Visual" Association="design_proModel.FK_Pages_Visual">
+      <End Role="Visual" EntitySet="Visual" />
+      <End Role="Pages" EntitySet="Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proyecto_Visual" Association="design_proModel.FK_Proyecto_Visual">
+      <End Role="Visual" EntitySet="Visual" />
+      <End Role="Proyecto" EntitySet="Proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Visual" Association="design_proModel.FK_Usuarios_Visual">
+      <End Role="Visual" EntitySet="Visual" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Pages_Visual">
+    <End Type="design_proModel.Visual" Role="Visual" Multiplicity="0..1" />
+    <End Type="design_proModel.Pages" Role="Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visual">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pages">
+        <PropertyRef Name="ID_Visual" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proyecto_Visual">
+    <End Type="design_proModel.Visual" Role="Visual" Multiplicity="1" />
+    <End Type="design_proModel.Proyecto" Role="Proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visual">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Proyecto">
+        <PropertyRef Name="Portada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Visual">
+    <End Type="design_proModel.Visual" Role="Visual" Multiplicity="0..1" />
+    <End Type="design_proModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visual">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="ID_Visual" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
