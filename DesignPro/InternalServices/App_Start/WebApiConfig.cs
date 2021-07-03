@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
+
 
 namespace InternalServices
 {
@@ -10,6 +12,8 @@ namespace InternalServices
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web
+            var cors = new EnableCorsAttribute("http://127.0.0.1:3000", "*", "*");
+            config.EnableCors(cors);
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 

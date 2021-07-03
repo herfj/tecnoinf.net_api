@@ -162,3 +162,6 @@ C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\InternalServices\
 C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\InternalServices\obj\Debug\InternalServices.csproj.CopyComplete
 C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\InternalServices\obj\Debug\InternalServices.dll
 C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\InternalServices\obj\Debug\InternalServices.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\InternalServices\bin\System.Web.Cors.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\InternalServices\bin\System.Web.Http.Cors.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\InternalServices\bin\System.Web.Http.Cors.xml

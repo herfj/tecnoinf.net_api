@@ -8,8 +8,11 @@ using BusinessLogic.Controllers;
 using Common.DataTransferObjects;
 using Newtonsoft.Json.Linq;
 
+
+
 namespace InternalServices.Controllers
 {
+
     public class UsuariosController : ApiController
     {
         public List<DTOUsuarios> GetAllUsuarios()
@@ -35,19 +38,22 @@ namespace InternalServices.Controllers
         [HttpPost]
         public IHttpActionResult CreateUsuario(DTOUsuarios user)
         {
+            
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
                 ControllerUsuario controller = new ControllerUsuario();
                 controller.CrearUsuario(user);
                 response.Success = true;
+                return Ok(controller.GetUser(user.Email));
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Error = ex.ToString();
+                return Ok(response);
             }
-            return Ok(response);
+           
         }
 
         [HttpPost]
