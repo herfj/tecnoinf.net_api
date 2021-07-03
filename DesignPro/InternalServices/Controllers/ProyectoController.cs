@@ -21,13 +21,14 @@ namespace InternalServices.Controllers
                 ControllerProyecto controller = new ControllerProyecto();
                 controller.CrearProyecto(DTOP);
                 response.Success = true;
+                return Ok(controller.GetProyect(DTOP.Titulo));
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Error = ex.ToString();
+                return InternalServerError();
             }
-            return Ok(response);
         }
 
         [HttpDelete]
@@ -39,13 +40,14 @@ namespace InternalServices.Controllers
                 ControllerProyecto controller = new ControllerProyecto();
                 controller.BorrarProyecto(DeleteContent["Titulo"].ToString());
                 response.Success = true;
+                return Ok(response);
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Error = ex.ToString();
+                return InternalServerError();
             }
-            return Ok(response);
         }
 
         public IHttpActionResult GetProyect([FromBody] JObject GetContent)
@@ -69,13 +71,14 @@ namespace InternalServices.Controllers
                 ControllerProyecto controller = new ControllerProyecto();
                 controller.SumarVistas(ShowContent["Titulo"].ToString());
                 response.Success = true;
+                return Ok(response);
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Error = ex.ToString();
+                return InternalServerError();
             }
-            return Ok(response);
         }
 
 
