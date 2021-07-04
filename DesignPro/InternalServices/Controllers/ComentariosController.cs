@@ -18,20 +18,29 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(dtocm.Fecha == null || dtocm.Cuerpo == null || dtocm.Usuario == null || dtocm.Proyecto == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerComentarios controller = new ControllerComentarios();
                 controller.Comentar(dtocm);
                 response.Success = true;
+                return Ok(response);
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Error = ex.ToString();
+                return InternalServerError();
             }
-            return Ok(response);
         }
     
         public List<DTOComentarios> GetComentariosFromPJ(DTOProyecto pj)
         {
+            if(pj.Titulo == null)
+            {
+                return InternalServerError();
+            }
             ControllerComentarios controller = new ControllerComentarios();
             List<DTOComentarios> lstDTO = controller.GetComentariosFromProyecto(pj.Titulo);
 

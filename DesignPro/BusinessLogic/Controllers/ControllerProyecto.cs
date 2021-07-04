@@ -303,6 +303,47 @@ namespace BusinessLogic.Controllers
             return cats;
                 
         }
-        
+
+        public List<DTOProyecto> Search(string Buscar)
+        {
+            ProyectoRepository repositorio = new ProyectoRepository(context);
+            HerramientasRepository repo_herra = new HerramientasRepository(context);
+            EtiquetasRepository repo_etiquetas = new EtiquetasRepository(context);
+            List<DTOProyecto> lista = new List<DTOProyecto>();
+            var proyectito = new DTOProyecto();
+            var entityList = repositorio.GetAll();
+            var herramientas = repo_herra.GetAll();
+            var etiquetas = repo_etiquetas.GetAll();
+            foreach(var proyecto in entityList)
+            {
+                if((proyecto.Titulo.Contains(Buscar)) || (proyecto.Autor.Contains(Buscar)))
+                {
+                    lista.Add(_mapper.MapToDTOProyecto(proyecto));
+                }
+            }
+            foreach(var herra in herramientas)
+            {
+                if(herra.Herramienta.Contains(Buscar.ToLower()))
+                {
+                   proyectito = _mapper.MapToDTOProyecto(repositorio.get(herra.Titulo_proyecto));
+                   if(!lista.Contains(proyectito))
+                   {
+                       lista.Add(proyectito);
+                   }
+                }
+            }
+            foreach(var eti in etiquetas)
+            {
+                if(eti.Etiquetas1.Contains(Buscar.ToLower()))
+                {
+                   proyectito = _mapper.MapToDTOProyecto(repositorio.get(eti.Titulo_proyecto));
+                   if(!lista.Contains(proyectito))
+                   {
+                       lista.Add(proyectito);
+                   }
+                }
+            }
+            return lista;
+        }
     }
 }

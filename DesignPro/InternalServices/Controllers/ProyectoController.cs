@@ -18,6 +18,10 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(DTOP.Titulo == null || DTOP.Autor == null || DTOP.Vistas == null || DTOP.Fecha_publicada == null || DTOP.Portada == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerProyecto controller = new ControllerProyecto();
                 controller.CrearProyecto(DTOP);
                 response.Success = true;
@@ -37,6 +41,10 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(DeleteContent["Titulo"].ToString() == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerProyecto controller = new ControllerProyecto();
                 controller.BorrarProyecto(DeleteContent["Titulo"].ToString());
                 response.Success = true;
@@ -53,13 +61,24 @@ namespace InternalServices.Controllers
         public IHttpActionResult GetProyect([FromBody] JObject GetContent)
         {
             ControllerProyecto controller = new ControllerProyecto();
-            var Proyecto = controller.GetProyect(GetContent["Titulo"].ToString());
-
-            if (Proyecto == null)
+            try
             {
-                return NotFound();
+                if(GetContent["Titulo"].ToString()==null)
+                {
+                    return InternalServerError();
+                }
+                var Proyecto = controller.GetProyect(GetContent["Titulo"].ToString());
+
+                if (Proyecto == null)
+                {
+                    return NotFound();
+                }
+                return Ok(Proyecto);
             }
-            return Ok(Proyecto);
+            catch (Exception ex){
+                return InternalServerError();
+            }
+            
         }
 
         [HttpPut]
@@ -68,6 +87,10 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(ShowContent["Titulo"].ToString() == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerProyecto controller = new ControllerProyecto();
                 controller.SumarVistas(ShowContent["Titulo"].ToString());
                 response.Success = true;
@@ -92,6 +115,10 @@ namespace InternalServices.Controllers
 
         public List<DTOProyecto> FilterByCategory(DTOCategoria cat)
         {
+            if(cat.Nombre==null)
+            {
+                return InternalServerError();
+            }
             ControllerProyecto controller = new ControllerProyecto();
             List<DTOProyecto> lstDTO = controller.FilterByCat(cat.Nombre);
 
@@ -100,6 +127,10 @@ namespace InternalServices.Controllers
 
         public List<DTOProyecto> FilterByLikes(DTOUsuarios user)
         {
+            if(user.Email == null)
+            {
+                return InternalServerError();
+            }
             ControllerProyecto controller = new ControllerProyecto();
             List<DTOProyecto> lstDTO = controller.FilterByLike(user.Email);
 
@@ -109,6 +140,10 @@ namespace InternalServices.Controllers
         
         public List<DTOProyecto> FilterByMine(DTOUsuarios user)
         {
+            if(user.Email == null)
+            {
+                return InternalServerError();
+            }
             ControllerProyecto controller = new ControllerProyecto();
             List<DTOProyecto> lstDTO = controller.FilterByMio(user.Email);
 
@@ -121,6 +156,23 @@ namespace InternalServices.Controllers
             List<DTOCategoria> lstDTO = controller.GetAllCategos();
 
             return lstDTO;
+        }
+
+        public List<DTOProyecto> SearchBy(string busqueda)
+        {   
+            try{
+                if(busqueda == null)
+                {
+                    return InternalServerError();
+                }
+                ControllerProyecto controller = new ControllerProyecto();
+                List<DTOProyecto> lstDTO = controller.Search(busqueda);
+                return lsDTO;
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError();
+            }
         }
     }
 }
