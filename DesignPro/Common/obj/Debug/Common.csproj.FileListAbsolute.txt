@@ -4,3 +4,40 @@ C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Commo
 C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Common\obj\Debug\Common.dll
 C:\Users\Administrador\Desktop\facultad\semestre1 2021\disainpro\DesignPro\Common\obj\Debug\Common.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\obj\Debug\Common.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\obj\Debug\Common.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Common.dll.config
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Common.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Common.pdb
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.AspNetCore.Http.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.AspNetCore.WebUtilities.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Extensions.ObjectPool.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Extensions.Options.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Net.Http.Headers.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Buffers.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.ComponentModel.Annotations.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Memory.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Numerics.Vectors.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Text.Encodings.Web.dll
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.AspNetCore.Http.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.AspNetCore.WebUtilities.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Extensions.ObjectPool.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Extensions.Options.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\Microsoft.Net.Http.Headers.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Buffers.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Memory.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Numerics.Vectors.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\bin\Debug\System.Text.Encodings.Web.xml
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\Common\obj\Debug\Common.csproj.CopyComplete

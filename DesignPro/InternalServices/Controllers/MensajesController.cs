@@ -20,36 +20,57 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if (dtomsg.Cuerpo == null  || dtomsg.Emisor == null || dtomsg.Remitente == null){
+                    return InternalServerError();
+                }
+                dtomsg.Visto = 0;
+                dtomsg.Fecha = DateTime.Now;
                 ControllerMensajes controller = new ControllerMensajes();
                 controller.EnviarMensaje(dtomsg);
                 response.Success = true;
+                return Ok(response);
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Error = ex.ToString();
+                return InternalServerError();
             }
-            return Ok(response);
+            
+        }
+        [HttpGet]
+        public IHttpActionResult BandejadeEntrada([FromUri] string Email)
+        {
+     
+            if(string.IsNullOrEmpty(Email))
+            {
+                return InternalServerError();
+            }
+      
+                ControllerMensajes controller = new ControllerMensajes();
+            List<DTOMensajes> lstDTO = controller.BandejaEntrada(Email);
+
+            return Ok(lstDTO);
         }
 
-        public List<DTOMensajes> BandejadeEntrada(DTOUsuarios user)
+        public IHttpActionResult BandejadeSalida(DTOUsuarios user)
         {
-            ControllerMensajes controller = new ControllerMensajes();
-            List<DTOMensajes> lstDTO = controller.BandejaEntrada(user.Email);
-
-            return lstDTO;
-        }
-
-        public List<DTOMensajes> BandejadeSalida(DTOUsuarios user)
-        {
+            if(user.Email == null)
+            {
+                return InternalServerError();
+            }
             ControllerMensajes controller = new ControllerMensajes();
             List<DTOMensajes> lstDTO = controller.BandejaSalida(user.Email);
 
-            return lstDTO;
+            return Ok(lstDTO);
         }
 
         public IHttpActionResult GetMSG([FromBody] JObject GetContent)
         {
+            if(GetContent["ID"].ToString() == null)
+            {
+                return InternalServerError();
+            }
             ControllerMensajes controller = new ControllerMensajes();
             int num_var = Int32.Parse(GetContent["ID"].ToString());
             var Mensaje = controller.GetMensaje(num_var);
@@ -67,17 +88,22 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(VistoContent["ID"].ToString() == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerMensajes controller = new ControllerMensajes();
                 int num_var = Int32.Parse(VistoContent["ID"].ToString());
                 controller.Visto(num_var);
                 response.Success = true;
+                return Ok(response);
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Error = ex.ToString();
+                return InternalServerError();
             }
-            return Ok(response);
         }
     }
 }

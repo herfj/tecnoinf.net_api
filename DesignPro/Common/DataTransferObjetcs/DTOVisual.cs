@@ -11,11 +11,11 @@ namespace Common.DataTransferObjects
 {
     using System;
     using System.Collections.Generic;
-    
+    using Microsoft.AspNetCore.Http;
     public partial class DTOVisual
     {
         public int ID { get; set; }
-        public string Path { get; set; }
+        public String Path { get; set; }
         public short Tipo { get; set; }
     }
 }

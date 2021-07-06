@@ -6,18 +6,23 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLogic.Controllers;
 using Common.DataTransferObjects;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 
 namespace InternalServices.Controllers
 {
     public class ProyectoController : ApiController
     {
-        [HttpPost]
+        [System.Web.Http.HttpPost]
         public IHttpActionResult CreateProyect(DTOProyecto DTOP)
         {
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(DTOP.Titulo == null || DTOP.Autor == null || DTOP.Vistas == null || DTOP.Fecha_publicada == null || DTOP.Portada == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerProyecto controller = new ControllerProyecto();
                 controller.CrearProyecto(DTOP);
                 response.Success = true;
@@ -31,12 +36,16 @@ namespace InternalServices.Controllers
             }
         }
 
-        [HttpDelete]
-        public IHttpActionResult DeleteProyect([FromBody]JObject DeleteContent)
+        [System.Web.Http.HttpDelete]
+        public IHttpActionResult DeleteProyect([System.Web.Http.FromBody]JObject DeleteContent)
         {
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(DeleteContent["Titulo"].ToString() == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerProyecto controller = new ControllerProyecto();
                 controller.BorrarProyecto(DeleteContent["Titulo"].ToString());
                 response.Success = true;
@@ -50,24 +59,39 @@ namespace InternalServices.Controllers
             }
         }
 
-        public IHttpActionResult GetProyect([FromBody] JObject GetContent)
+        public IHttpActionResult GetProyect([System.Web.Http.FromBody] JObject GetContent)
         {
             ControllerProyecto controller = new ControllerProyecto();
-            var Proyecto = controller.GetProyect(GetContent["Titulo"].ToString());
-
-            if (Proyecto == null)
+            try
             {
-                return NotFound();
+                if(GetContent["Titulo"].ToString()==null)
+                {
+                    return InternalServerError();
+                }
+                var Proyecto = controller.GetProyect(GetContent["Titulo"].ToString());
+
+                if (Proyecto == null)
+                {
+                    return NotFound();
+                }
+                return Ok(Proyecto);
             }
-            return Ok(Proyecto);
+            catch (Exception ex){
+                return InternalServerError();
+            }
+            
         }
 
-        [HttpPut]
-        public IHttpActionResult SumarProyect([FromBody] JObject ShowContent)
+        [System.Web.Http.HttpPut]
+        public IHttpActionResult SumarProyect([System.Web.Http.FromBody]JObject ShowContent)
         {
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(ShowContent["Titulo"].ToString() == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerProyecto controller = new ControllerProyecto();
                 controller.SumarVistas(ShowContent["Titulo"].ToString());
                 response.Success = true;
@@ -90,29 +114,41 @@ namespace InternalServices.Controllers
             return lstDTO;
         }
 
-        public List<DTOProyecto> FilterByCategory(DTOCategoria cat)
+        public IHttpActionResult FilterByCategory(DTOCategoria cat)
         {
+            if(cat.Nombre==null)
+            {
+                return InternalServerError();
+            }
             ControllerProyecto controller = new ControllerProyecto();
             List<DTOProyecto> lstDTO = controller.FilterByCat(cat.Nombre);
 
-            return lstDTO;
+            return Ok(lstDTO);
         }
 
-        public List<DTOProyecto> FilterByLikes(DTOUsuarios user)
+        public IHttpActionResult FilterByLikes(DTOUsuarios user)
         {
+            if(user.Email == null)
+            {
+                return InternalServerError();
+            }
             ControllerProyecto controller = new ControllerProyecto();
             List<DTOProyecto> lstDTO = controller.FilterByLike(user.Email);
 
-            return lstDTO;
+            return Ok(lstDTO);
         }
 
         
-        public List<DTOProyecto> FilterByMine(DTOUsuarios user)
+        public IHttpActionResult FilterByMine(DTOUsuarios user)
         {
+            if(user.Email == null)
+            {
+                return InternalServerError();
+            }
             ControllerProyecto controller = new ControllerProyecto();
             List<DTOProyecto> lstDTO = controller.FilterByMio(user.Email);
 
-            return lstDTO;
+            return Ok(lstDTO);
         }
 
         public List<DTOCategoria> GetAllCats()
@@ -121,6 +157,23 @@ namespace InternalServices.Controllers
             List<DTOCategoria> lstDTO = controller.GetAllCategos();
 
             return lstDTO;
+        }
+
+        public IHttpActionResult SearchBy(string busqueda)
+        {   
+            try{
+                if(busqueda == null)
+                {
+                    return InternalServerError();
+                }
+                ControllerProyecto controller = new ControllerProyecto();
+                List<DTOProyecto> lstDTO = controller.Search(busqueda);
+                return Ok(lstDTO);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError();
+            }
         }
     }
 }

@@ -239,15 +239,20 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(SigueONoSigueContent["seguidor"].ToString() == null || SigueONoSigueContent["seguido"].ToString() == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerUsuario controller = new ControllerUsuario();
                 response.Success = controller.EsteLoSigueONo(SigueONoSigueContent["seguidor"].ToString(), SigueONoSigueContent["seguido"].ToString());
+                return Ok(response);
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Error = ex.ToString();
+                return InternalServerError();
             }
-            return Ok(response);
         }
 
         public IHttpActionResult EsteLeDioLikeONo([FromBody]JObject EsteLeDioLikeONoContent)
@@ -255,15 +260,20 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+                if(EsteLeDioLikeONoContent["Email"].ToString() == null || EsteLeDioLikeONoContent["Titulo"].ToString() == null)
+                {
+                    return InternalServerError();
+                }
                 ControllerUsuario controller = new ControllerUsuario();
                 response.Success = controller.EsteDioLikeONo(EsteLeDioLikeONoContent["Email"].ToString(), EsteLeDioLikeONoContent["Titulo"].ToString());
+                return Ok(response);
             }
             catch (Exception ex)
             {
                 response.Success = false;
                 response.Error = ex.ToString();
+                return InternalServerError();
             }
-            return Ok(response);
         }
     }
 }
