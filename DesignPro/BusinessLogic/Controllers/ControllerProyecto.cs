@@ -306,6 +306,7 @@ namespace BusinessLogic.Controllers
 
         public List<DTOProyecto> Search(string Buscar)
         {
+
             using (design_proEntities context = new design_proEntities())
             {
                 ProyectoRepository repositorio = new ProyectoRepository(context);
@@ -347,6 +348,7 @@ namespace BusinessLogic.Controllers
                 }
                 return lista;
             }
+
         }
     }
 }

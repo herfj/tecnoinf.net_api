@@ -20,11 +20,13 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
+
                 if (dtomsg.Cuerpo == null  || dtomsg.Emisor == null || dtomsg.Remitente == null){
                     return InternalServerError();
                 }
                 dtomsg.Visto = 0;
                 dtomsg.Fecha = DateTime.Now;
+
                 ControllerMensajes controller = new ControllerMensajes();
                 controller.EnviarMensaje(dtomsg);
                 response.Success = true;
@@ -41,6 +43,7 @@ namespace InternalServices.Controllers
         [HttpGet]
         public IHttpActionResult BandejadeEntrada([FromUri] string Email)
         {
+
      
             if(string.IsNullOrEmpty(Email))
             {
@@ -49,6 +52,7 @@ namespace InternalServices.Controllers
       
                 ControllerMensajes controller = new ControllerMensajes();
             List<DTOMensajes> lstDTO = controller.BandejaEntrada(Email);
+
 
             return Ok(lstDTO);
         }

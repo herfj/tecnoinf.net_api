@@ -159,7 +159,9 @@ namespace InternalServices.Controllers
             return lstDTO;
         }
 
+
         public IHttpActionResult SearchBy(string busqueda)
+
         {   
             try{
                 if(busqueda == null)
@@ -168,7 +170,9 @@ namespace InternalServices.Controllers
                 }
                 ControllerProyecto controller = new ControllerProyecto();
                 List<DTOProyecto> lstDTO = controller.Search(busqueda);
+
                 return Ok(lstDTO);
+
             }
             catch (Exception ex)
             {
