@@ -56,7 +56,7 @@ namespace InternalServices.Controllers
 
             return Ok(lstDTO);
         }
-
+        [HttpGet]
         public IHttpActionResult BandejadeSalida(DTOUsuarios user)
         {
             if(user.Email == null)
@@ -68,15 +68,15 @@ namespace InternalServices.Controllers
 
             return Ok(lstDTO);
         }
-
-        public IHttpActionResult GetMSG([FromBody] JObject GetContent)
+        [HttpGet]
+        public IHttpActionResult GetMSG([FromUri] string id)
         {
-            if(GetContent["ID"].ToString() == null)
+            if (string.IsNullOrEmpty(id))
             {
                 return InternalServerError();
             }
             ControllerMensajes controller = new ControllerMensajes();
-            int num_var = Int32.Parse(GetContent["ID"].ToString());
+            int num_var = Int32.Parse(id);
             var Mensaje = controller.GetMensaje(num_var);
 
             if (Mensaje == null)
