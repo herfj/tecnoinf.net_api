@@ -57,14 +57,14 @@ namespace InternalServices.Controllers
             return Ok(lstDTO);
         }
         [HttpGet]
-        public IHttpActionResult BandejadeSalida(DTOUsuarios user)
+        public IHttpActionResult BandejadeSalida([FromUri] string Email)
         {
-            if(user.Email == null)
+            if (string.IsNullOrEmpty(Email))
             {
                 return InternalServerError();
             }
             ControllerMensajes controller = new ControllerMensajes();
-            List<DTOMensajes> lstDTO = controller.BandejaSalida(user.Email);
+            List<DTOMensajes> lstDTO = controller.BandejaSalida(Email);
 
             return Ok(lstDTO);
         }

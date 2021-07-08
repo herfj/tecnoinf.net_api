@@ -23,17 +23,18 @@ namespace InternalServices.Controllers
 
             return lstDTO;
         }
-
-        public IHttpActionResult GetUsuario(DTOUsuarios user)
+        [HttpGet]
+        public IHttpActionResult GetUsuario([FromUri] string Email)
         {
             ControllerUsuario controller = new ControllerUsuario();
-            if(user.Email == null)
+            if (string.IsNullOrEmpty(Email))
             {
                 return NotFound();
             }
-            else{
+            else
+            {
 
-                var Usuario = controller.GetUser(user.Email);
+                var Usuario = controller.GetUser(Email);
                 if (Usuario == null)
                 {
                     return NotFound();     
