@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessLogic.DataModel.Mappers;
+﻿using BusinessLogic.DataModel.Mappers;
 using BusinessLogic.DataModel.Repositories;
 using Common.DataTransferObjects;
 using Resistencia.Database;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 
 namespace BusinessLogic.Controllers
 {
@@ -66,6 +65,36 @@ namespace BusinessLogic.Controllers
                 throw ex;
             }
 
+        }
+
+        public int CrearVisual(string base64, string email)
+        {
+            using (design_proEntities context = new design_proEntities())
+            {
+                Visual v = new Visual();
+                VisualRepository visualRepository = new VisualRepository(context);
+                var bytes = Convert.FromBase64String(base64);// a.base64image 
+                string filedir = Path.Combine(Directory.GetCurrentDirectory(), "Imagen");
+                if (!Directory.Exists(filedir))
+                {
+                    Directory.CreateDirectory(filedir);
+                }
+                string file = Path.Combine(filedir, email + ".jpg");
+                //Debug.WriteLine(File.Exists(file));
+                if (bytes.Length > 0)
+                {
+                    Image image;
+                    using (MemoryStream ms = new MemoryStream(bytes))
+                    {
+                        image = Image.FromStream(ms);
+                    }
+                }
+                v.Path = file;
+                v.Tipo = 0;
+                visualRepository.Create(v);
+                context.SaveChanges();
+                return v.ID;
+            }
         }
 
         public void BorrarUsuario(string Email)

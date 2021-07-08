@@ -37,7 +37,9 @@ namespace Common.DataTransferObjects
         public string Empresa { get; set; }
         public string URL { get; set; }
         public Nullable<int> ID_Visual { get; set; }
-    
+
+        public string imagen { get; set; }
+
         public  ICollection<DTOComentarios> Comentarios { get; set; }
         public  ICollection<DTOMensajes> Enviados { get; set; }
         public  ICollection<DTOMensajes> Recibidos { get; set; }
