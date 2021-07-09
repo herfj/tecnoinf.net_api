@@ -46,3 +46,15 @@ C:\Users\Administrador\Desktop\facultad\api_net-master\DesignPro\Resistencia\obj
 C:\Users\Administrador\Desktop\facultad\api_net-master\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CopyComplete
 C:\Users\Administrador\Desktop\facultad\api_net-master\DesignPro\Resistencia\obj\Debug\Resistencia.dll
 C:\Users\Administrador\Desktop\facultad\api_net-master\DesignPro\Resistencia\obj\Debug\Resistencia.pdb
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\Resistencia.dll.config
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\Resistencia.dll
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\Resistencia.pdb
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.xml
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csprojAssemblyReference.cache
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CopyComplete
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.dll
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.pdb

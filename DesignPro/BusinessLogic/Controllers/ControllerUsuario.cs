@@ -47,14 +47,15 @@ namespace BusinessLogic.Controllers
                 {
                     UsuariosRepository repositorio = new UsuariosRepository(context);
                     Usuarios entity = repositorio.get(DTOUser.Email);
-                    
+                    int ID = CrearVisual(DTOUser.imagen, DTOUser.Email);
+
                     entity.Nombre = DTOUser.Nombre;
                     entity.Apellido = DTOUser.Apellido;
                     entity.Profesion = DTOUser.Profesion;
                     entity.Empresa = DTOUser.Empresa;
                     entity.Pais = DTOUser.Pais;
                     entity.Ciudad = DTOUser.Ciudad;
-                    entity.ID_Visual = DTOUser.ID_Visual;
+                    entity.ID_Visual = ID;
                     entity.URL = DTOUser.URL;
 
                     context.SaveChanges();
@@ -73,23 +74,7 @@ namespace BusinessLogic.Controllers
             {
                 Visual v = new Visual();
                 VisualRepository visualRepository = new VisualRepository(context);
-                var bytes = Convert.FromBase64String(base64);// a.base64image 
-                string filedir = Path.Combine(Directory.GetCurrentDirectory(), "Imagen");
-                if (!Directory.Exists(filedir))
-                {
-                    Directory.CreateDirectory(filedir);
-                }
-                string file = Path.Combine(filedir, email + ".jpg");
-                //Debug.WriteLine(File.Exists(file));
-                if (bytes.Length > 0)
-                {
-                    Image image;
-                    using (MemoryStream ms = new MemoryStream(bytes))
-                    {
-                        image = Image.FromStream(ms);
-                    }
-                }
-                v.Path = file;
+                v.Path = base64;
                 v.Tipo = 0;
                 visualRepository.Create(v);
                 context.SaveChanges();
