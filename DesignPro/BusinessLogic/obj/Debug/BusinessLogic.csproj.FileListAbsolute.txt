@@ -50,3 +50,4 @@ C:\Users\Administrador\Desktop\facultad\api_net-master\DesignPro\BusinessLogic\o
 C:\Users\Administrador\Desktop\facultad\api_net-master\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.dll
 C:\Users\Administrador\Desktop\facultad\api_net-master\DesignPro\BusinessLogic\obj\Debug\BusinessLogic.pdb
 C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\Common.dll.config
+C:\workspace\Facultad\net\laboratorioRIA_NET\api_net\DesignPro\BusinessLogic\bin\Debug\System.Drawing.Common.dll
