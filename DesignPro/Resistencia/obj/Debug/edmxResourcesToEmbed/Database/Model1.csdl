@@ -131,7 +131,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Tipo" Type="Int16" Nullable="false" />
     <NavigationProperty Name="Pages" Relationship="design_proModel.FK_Pages_Visual" FromRole="Visual" ToRole="Pages" />
     <NavigationProperty Name="Proyecto" Relationship="design_proModel.FK_Proyecto_Visual" FromRole="Visual" ToRole="Proyecto" />

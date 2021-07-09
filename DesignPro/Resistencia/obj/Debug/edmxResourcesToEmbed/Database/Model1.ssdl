@@ -116,7 +116,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Path" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Tipo" Type="smallint" Nullable="false" />
   </EntityType>
   <Association Name="FK_Comentarios_Proyecto">
