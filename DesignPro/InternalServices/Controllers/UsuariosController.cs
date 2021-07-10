@@ -152,7 +152,8 @@ namespace InternalServices.Controllers
                 ControllerUsuario controller = new ControllerUsuario();
                 controller.SeguirUsuario(SeguirContent["seguidor"].ToString(), SeguirContent["seguido"].ToString());
                 response.Success = true;
-                return Ok(response);
+
+                return Ok(controller.GetUser(SeguirContent["seguido"].ToString()));
             }
             catch (Exception ex)
             {
@@ -200,7 +201,7 @@ namespace InternalServices.Controllers
                 ControllerUsuario controller = new ControllerUsuario();
                 controller.DejarDeSeguirUsuario(DejarDeSeguirContent["seguidor"].ToString(), DejarDeSeguirContent["seguido"].ToString());
                 response.Success = true;
-                return Ok(response);
+                return Ok(controller.GetUser(DejarDeSeguirContent["seguido"].ToString()));
             }
             catch (Exception ex)
             {
