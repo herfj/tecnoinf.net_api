@@ -36,6 +36,32 @@ namespace InternalServices.Controllers
             }
         }
 
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult CrearPage(DTOProyecto DTOP)
+        {
+            DTOBaseResponse response = new DTOBaseResponse();
+            try
+            {
+                if((DTOP.Texto == null && DTOP.Imagen == null) || DTOP.Titulo == null)
+                {
+                    return InternalServerError();
+                }
+                else
+                {
+                    ControllerProyecto controller = new ControllerProyecto();
+                    controller.CrearPaginas(DTOP);
+                    response.Success = true;
+                    return Ok(controller.GetProyect(DTOP.Titulo));
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Error = ex.ToString();
+                return InternalServerError();
+            }
+        }
+
         [System.Web.Http.HttpDelete]
         public IHttpActionResult DeleteProyect([System.Web.Http.FromBody]JObject DeleteContent)
         {
