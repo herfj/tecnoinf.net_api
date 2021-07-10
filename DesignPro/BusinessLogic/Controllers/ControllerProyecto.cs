@@ -87,31 +87,33 @@ namespace BusinessLogic.Controllers
         {
             using (design_proEntities context = new design_proEntities())
             {
+                ProyectoRepository proyectoRepository = new ProyectoRepository(context);
                 PortfolioRepository portfolioRepository = new PortfolioRepository(context);
                 PagesRepository pagesRepository = new PagesRepository(context);
                 VisualRepository visualRepository = new VisualRepository(context);
-                int ID = DTOP.ID_Portfolio ?? default(int);
+                DTOProyecto dto = _mapper.MapToDTOProyecto(proyectoRepository.get(DTOP.Titulo));
+                int ID = dto.ID_Portfolio ?? default(int);
+                Pages page = new Pages();
+                Visual v = new Visual();
                 Portfolio P = portfolioRepository.get(ID);       
                 if(DTOP.Texto == null)
                 {
-                    Pages page = new Pages();
-                    Visual v = new Visual();
                     v.Path = DTOP.Imagen;
                     page.ID_Visual = v.ID;
                     page.ID_Portfolio = ID;
+                    pagesRepository.Create(page);
+                    visualRepository.Create(v);
+                    context.SaveChanges();
                     P.Pages.Add(page);
                 }
                 else
                 {
-                    if(DTOP.Imagen == null)
-                    {
-                        Pages page = new Pages();
                         page.ID_Portfolio = ID;
                         page.Contenido = DTOP.Texto;
+                        pagesRepository.Create(page);
+                        context.SaveChanges();
                         P.Pages.Add(page);
-                    }
                 }
-                context.SaveChanges();
             }
         }
 
@@ -231,20 +233,25 @@ namespace BusinessLogic.Controllers
                 PortfolioRepository portfolioRepository = new PortfolioRepository(context);
                 var entity = repositorio.get(Titulo_proyecto);
                 var DTOentity = _mapper.MapToDTOProyecto(entity);
+                List<string> paginas = new List<string>();
                 Visual v = visualRepository.get(DTOentity.Portada);
                 DTOentity.P = v.Path;
                 Portfolio port = portfolioRepository.get(DTOentity.ID_Portfolio ?? default(int));
-                foreach(var p in port.Pages)
+                if(port != null)
                 {
-                    if(p.ID_Visual != null)
+                    foreach (var p in port.Pages)
                     {
-                        DTOentity.paginas.Add(p.Contenido);
+                        if (p.ID_Visual == null)
+                        {
+                            paginas.Add(p.Contenido);
+                        }
+                        else
+                        {
+                            Visual visual = visualRepository.get(p.ID_Visual ?? default(int));
+                            paginas.Add("Imagen" + visual.Path);
+                        }
                     }
-                    else
-                    {
-                        Visual visual = visualRepository.get(p.ID_Visual ?? default(int));
-                        DTOentity.paginas.Add("Imagen"+visual.Path);
-                    }
+                    DTOentity.paginas = paginas;
                 }
                 return DTOentity;   
             }
