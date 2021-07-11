@@ -36,6 +36,51 @@ namespace InternalServices.Controllers
             }
         }
 
+        public IHttpActionResult BorrarPage([System.Web.Http.FromBody] JObject BorrarContent)
+        {
+            DTOBaseResponse response = new DTOBaseResponse();
+            try
+            {
+                if (BorrarContent["ID"] == null || BorrarContent["Titulo"] == null)
+                {
+                    return InternalServerError();
+                }
+                ControllerProyecto controller = new ControllerProyecto();
+                controller.BorrarPagina(Int32.Parse(BorrarContent["ID"].ToString()));
+                response.Success = true;
+                return Ok(controller.GetProyect(BorrarContent["Titulo"].ToString()));
+            }
+            catch(Exception ex)
+            {
+                response.Success = false;
+                response.Error = ex.ToString();
+                return InternalServerError();
+            }
+        }
+
+        public IHttpActionResult EditarPage([System.Web.Http.FromBody]JObject EditarContent)
+        {
+            DTOBaseResponse response = new DTOBaseResponse();
+            try
+            {
+                if(EditarContent["ID"] == null || EditarContent["cadena"] == null || EditarContent["texto"] == null || EditarContent["Titulo"] == null)
+                {
+                    return InternalServerError();
+                }
+                ControllerProyecto controller = new ControllerProyecto();
+                controller.EditarPagina(Int32.Parse(EditarContent["ID"].ToString()), EditarContent["cadena"].ToString(), Int32.Parse(EditarContent["texto"].ToString()));
+                response.Success = true;
+                return Ok(controller.GetProyect(EditarContent["Titulo"].ToString()));
+            }
+            catch(Exception ex)
+            {
+                response.Success = false;
+                response.Error = ex.ToString();
+                return InternalServerError();
+            }
+        }
+
+
         [System.Web.Http.HttpPost]
         public IHttpActionResult CrearPage(DTOProyecto DTOP)
         {

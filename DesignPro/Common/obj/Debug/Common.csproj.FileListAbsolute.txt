@@ -77,3 +77,4 @@ C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\obj\Debug\Common.cs
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\obj\Debug\Common.csproj.CopyComplete
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\obj\Debug\Common.dll
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\obj\Debug\Common.pdb
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\obj\Debug\Common.csprojAssemblyReference.cache

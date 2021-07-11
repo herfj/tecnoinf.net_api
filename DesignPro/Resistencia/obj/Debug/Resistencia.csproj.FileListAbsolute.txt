@@ -57,3 +57,4 @@ C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resi
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CopyComplete
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.dll
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.pdb
+C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csprojAssemblyReference.cache

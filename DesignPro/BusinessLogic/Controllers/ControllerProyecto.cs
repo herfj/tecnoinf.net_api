@@ -234,6 +234,7 @@ namespace BusinessLogic.Controllers
                 var entity = repositorio.get(Titulo_proyecto);
                 var DTOentity = _mapper.MapToDTOProyecto(entity);
                 List<string> paginas = new List<string>();
+                List<int> IDS = new List<int>();
                 Visual v = visualRepository.get(DTOentity.Portada);
                 DTOentity.P = v.Path;
                 Portfolio port = portfolioRepository.get(DTOentity.ID_Portfolio ?? default(int));
@@ -244,16 +245,73 @@ namespace BusinessLogic.Controllers
                         if (p.ID_Visual == null)
                         {
                             paginas.Add(p.Contenido);
+                            IDS.Add(p.ID);
                         }
                         else
                         {
                             Visual visual = visualRepository.get(p.ID_Visual ?? default(int));
                             paginas.Add("Imagen" + visual.Path);
+                            IDS.Add(p.ID);
                         }
                     }
+                    DTOentity.IDPages = IDS;
                     DTOentity.paginas = paginas;
                 }
                 return DTOentity;   
+            }
+        }
+
+        public void BorrarPagina(int ID)
+        {
+            using (design_proEntities context = new design_proEntities())
+            {
+                VisualRepository visualRepository = new VisualRepository(context);
+                PagesRepository pagesRepository = new PagesRepository(context);
+                Pages page = pagesRepository.get(ID);
+                if(page.ID_Visual == null)
+                {
+                    pagesRepository.Delete(ID);
+                }
+                else
+                {
+                    visualRepository.Delete(page.ID_Visual ?? default(int));
+                    pagesRepository.Delete(ID);
+                }
+                context.SaveChanges();
+            }
+        }
+
+
+        public void EditarPagina(int ID,string cadena,int texto)
+        {
+            using (design_proEntities context = new design_proEntities())
+            {
+                VisualRepository visualRepository = new VisualRepository(context);
+                PagesRepository pagesRepository = new PagesRepository(context);
+                Pages page = pagesRepository.get(ID);
+                if (texto==1)
+                {
+                    if (page.ID_Visual != null)
+                    {
+                        Visual v = visualRepository.get(page.ID_Visual ?? default(int));
+                        visualRepository.Delete(v.ID);
+                    }
+                    page.Contenido = cadena;
+                }
+                else
+                {
+                    if (page.ID_Visual != null)
+                    {
+                        Visual v = visualRepository.get(page.ID_Visual ?? default(int));
+                        v.Path = cadena;
+                    }
+                    else
+                    {
+                        page.Contenido = null;
+                        page.ID_Visual = CrearVisual(cadena);
+                    }
+                }
+                context.SaveChanges();
             }
         }
 
