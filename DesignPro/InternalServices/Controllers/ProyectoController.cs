@@ -130,16 +130,16 @@ namespace InternalServices.Controllers
             }
         }
         [System.Web.Http.HttpGet]
-        public IHttpActionResult GetProyect([System.Web.Http.FromBody] JObject GetContent)
+        public IHttpActionResult GetProyect([System.Web.Http.FromUri] string Titulo)
         {
             ControllerProyecto controller = new ControllerProyecto();
             try
             {
-                if(GetContent["Titulo"].ToString()==null)
+                if(string.IsNullOrEmpty(Titulo))
                 {
                     return InternalServerError();
                 }
-                var Proyecto = controller.GetProyect(GetContent["Titulo"].ToString());
+                var Proyecto = controller.GetProyect(Titulo);
 
                 if (Proyecto == null)
                 {

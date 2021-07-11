@@ -36,6 +36,7 @@ namespace Common.DataTransferObjects
         public string P { get; set; }
         public ICollection<string> paginas { get; set; }
         public ICollection<int> IDPages { get; set; }
+        public int likes{ get; set; }
 
         public  ICollection<DTOComentarios> Comentarios { get; set; }
         public  ICollection<DTOEtiquetas> Etiquetas { get; set; }

@@ -16,12 +16,14 @@ namespace BusinessLogic.Controllers
         private CategoriaMapper _mappercategoria;
         private HerramientasMapper _mapperherramientas;
         private EtiquetasMapper _mapperetiquetas;
+        private Proyecto_categoriasMapper _pcmapper;
         public ControllerProyecto()
         {
             _mapper = new ProyectoMapper();
             _mappercategoria = new CategoriaMapper();
             _mapperherramientas = new HerramientasMapper();
             _mapperetiquetas = new EtiquetasMapper();
+            _pcmapper = new Proyecto_categoriasMapper();
         }
 
 
@@ -231,6 +233,9 @@ namespace BusinessLogic.Controllers
                 ProyectoRepository repositorio = new ProyectoRepository(context);
                 VisualRepository visualRepository = new VisualRepository(context);
                 PortfolioRepository portfolioRepository = new PortfolioRepository(context);
+                EtiquetasRepository etiquetasRepository = new EtiquetasRepository(context);
+                HerramientasRepository herramientasRepository = new HerramientasRepository(context);
+                Proyecto_categoriasRepository pcRepository = new Proyecto_categoriasRepository(context);
                 var entity = repositorio.get(Titulo_proyecto);
                 var DTOentity = _mapper.MapToDTOProyecto(entity);
                 List<string> paginas = new List<string>();
@@ -255,6 +260,31 @@ namespace BusinessLogic.Controllers
                             IDS.Add(p.ID);
                         }
                     }
+                    List<Etiquetas> eti = etiquetasRepository.GetAll();
+                    List<Herramientas> her = herramientasRepository.GetAll();
+                    List<Proyecto_categorias> pc = pcRepository.GetAll();
+                    foreach(var e in eti) 
+                    {
+                        if(e.Titulo_proyecto == Titulo_proyecto)
+                        {
+                            DTOentity.Etiquetas.Add(_mapperetiquetas.MapToDTOEtiquetas(e));
+                        }
+                    }
+                    foreach(var h in her)
+                    {
+                        if(h.Titulo_proyecto == Titulo_proyecto)
+                        {
+                            DTOentity.Herramientas.Add(_mapperherramientas.MapToDTOHerramientas(h));
+                        }
+                    }
+                    foreach(var p in pc)
+                    {
+                        if(p.Titulo_proyecto == Titulo_proyecto)
+                        {
+                            DTOentity.Proyecto_categorias.Add(_pcmapper.MapToDTOProyecto_categorias(p));
+                        }
+                    }
+                    DTOentity.likes = entity.Usuarios1.Count();
                     DTOentity.IDPages = IDS;
                     DTOentity.paginas = paginas;
                 }
@@ -341,6 +371,7 @@ namespace BusinessLogic.Controllers
                     DTOProyecto DTOP = _mapper.MapToDTOProyecto(entity);
                     Visual v = visualRepository.get(entity.Portada);
                     DTOP.P = v.Path;
+                    DTOP.likes = entity.Usuarios1.Count();
                     proyectos.Add(DTOP);
                 }
             }
@@ -355,6 +386,7 @@ namespace BusinessLogic.Controllers
             using (design_proEntities context = new design_proEntities())
             {
                 ProyectoRepository repositorio = new ProyectoRepository(context);
+                VisualRepository visualRepository = new VisualRepository(context);
                 Proyecto_categoriasRepository pro_cat = new Proyecto_categoriasRepository(context);
                 var pro_cats = pro_cat.GetAll();
                 var entityList = repositorio.GetAll();
@@ -364,7 +396,11 @@ namespace BusinessLogic.Controllers
                     {
                         if(p_cat.Categoria == Nombre_Cat && p_cat.Titulo_proyecto == entity.Titulo)
                         {
-                            proyectos_porcat.Add(_mapper.MapToDTOProyecto(entity));
+                            DTOProyecto DTOP = _mapper.MapToDTOProyecto(entity);
+                            Visual v = visualRepository.get(entity.Portada);
+                            DTOP.P = v.Path;
+                            DTOP.likes = entity.Usuarios1.Count();
+                            proyectos_porcat.Add(DTOP);
                         }
                     }   
                 }
@@ -380,6 +416,7 @@ namespace BusinessLogic.Controllers
             {
                 ProyectoRepository repositorio = new ProyectoRepository(context);
                 UsuariosRepository UserRepositorio = new UsuariosRepository(context);
+                VisualRepository visualRepository = new VisualRepository(context);
                 Usuarios User = UserRepositorio.get(Email);
                 List<Proyecto> Proyectos_likeados = User.Proyecto1.ToList();
                 var entityList = repositorio.GetAll();
@@ -389,7 +426,11 @@ namespace BusinessLogic.Controllers
                     {
                         if(likeado.Titulo == entity.Titulo) 
                         {
-                            proyectos_porlike.Add(_mapper.MapToDTOProyecto(entity));
+                            DTOProyecto DTOP = _mapper.MapToDTOProyecto(entity);
+                            Visual v = visualRepository.get(entity.Portada);
+                            DTOP.P = v.Path;
+                            DTOP.likes = entity.Usuarios1.Count();
+                            proyectos_porlike.Add(DTOP);
                         }
                     }    
                 }
@@ -405,6 +446,7 @@ namespace BusinessLogic.Controllers
             {
                 ProyectoRepository repositorio = new ProyectoRepository(context);
                 UsuariosRepository UserRepositorio = new UsuariosRepository(context);
+                VisualRepository visualRepository = new VisualRepository(context);
                 Usuarios User = UserRepositorio.get(Email);
                 List<Proyecto> Proyectos_mios = User.Proyecto.ToList();
                 var entityList = repositorio.GetAll();
@@ -414,7 +456,11 @@ namespace BusinessLogic.Controllers
                     {
                         if(mio.Titulo == entity.Titulo) 
                         {
-                            proyectos_pormio.Add(_mapper.MapToDTOProyecto(entity));
+                            DTOProyecto DTOP = _mapper.MapToDTOProyecto(entity);
+                            Visual v = visualRepository.get(entity.Portada);
+                            DTOP.P = v.Path;
+                            DTOP.likes = entity.Usuarios1.Count();
+                            proyectos_pormio.Add(DTOP);
                         }
                     }    
                 }
@@ -447,6 +493,7 @@ namespace BusinessLogic.Controllers
                 ProyectoRepository repositorio = new ProyectoRepository(context);
                 HerramientasRepository repo_herra = new HerramientasRepository(context);
                 EtiquetasRepository repo_etiquetas = new EtiquetasRepository(context);
+                VisualRepository visualRepository = new VisualRepository(context);
                 List<DTOProyecto> lista = new List<DTOProyecto>();
                 var proyectito = new DTOProyecto();
                 var entityList = repositorio.GetAll();
@@ -456,7 +503,10 @@ namespace BusinessLogic.Controllers
                 {
                     if ((proyecto.Titulo.Contains(Buscar)) || (proyecto.Autor.Contains(Buscar)))
                     {
-                        lista.Add(_mapper.MapToDTOProyecto(proyecto));
+                        Visual v = visualRepository.get(proyecto.Portada);
+                        proyectito.P = v.Path;
+                        proyectito.likes = proyecto.Usuarios1.Count();
+                        lista.Add(proyectito);
                     }
                 }
                 foreach (var herra in herramientas)
@@ -466,6 +516,10 @@ namespace BusinessLogic.Controllers
                         proyectito = _mapper.MapToDTOProyecto(repositorio.get(herra.Titulo_proyecto));
                         if (!lista.Contains(proyectito))
                         {
+                            Proyecto proyecto = repositorio.get(herra.Titulo_proyecto);
+                            Visual v = visualRepository.get(proyecto.Portada);
+                            proyectito.P = v.Path;
+                            proyectito.likes = proyecto.Usuarios1.Count();
                             lista.Add(proyectito);
                         }
                     }
@@ -477,6 +531,10 @@ namespace BusinessLogic.Controllers
                         proyectito = _mapper.MapToDTOProyecto(repositorio.get(eti.Titulo_proyecto));
                         if (!lista.Contains(proyectito))
                         {
+                            Proyecto proyecto = repositorio.get(eti.Titulo_proyecto);
+                            Visual v = visualRepository.get(proyecto.Portada);
+                            proyectito.P = v.Path;
+                            proyectito.likes = proyecto.Usuarios1.Count();
                             lista.Add(proyectito);
                         }
                     }
