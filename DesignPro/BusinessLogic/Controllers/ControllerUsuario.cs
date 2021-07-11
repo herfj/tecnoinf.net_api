@@ -136,10 +136,11 @@ namespace BusinessLogic.Controllers
                 var DTOentity = _mapper.MapToDTOUsuarios(entity);
                 int dou = DTOentity.ID_Visual ?? default(int);
                 var v = visual.get(dou);
-                if (v != null) { 
-                DTOentity.imagen = v.Path;
+                if(v!=null)
+                {
+                    DTOentity.imagen = v.Path;
                 }
-
+                
                 return DTOentity;   
             }
         }

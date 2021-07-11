@@ -16,6 +16,7 @@ namespace InternalServices.Controllers
 
     public class UsuariosController : ApiController
     {
+        [HttpGet]
         public List<DTOUsuarios> GetAllUsuarios()
         {
             ControllerUsuario controller = new ControllerUsuario();
@@ -235,7 +236,7 @@ namespace InternalServices.Controllers
             }
             
         }
-
+        [HttpGet]
         public IHttpActionResult SigueONoSigue([FromBody]JObject SigueONoSigueContent)
         {
             DTOBaseResponse response = new DTOBaseResponse();
@@ -256,7 +257,7 @@ namespace InternalServices.Controllers
                 return InternalServerError();
             }
         }
-
+        [HttpGet]
         public IHttpActionResult EsteLeDioLikeONo([FromBody]JObject EsteLeDioLikeONoContent)
         {
             DTOBaseResponse response = new DTOBaseResponse();
