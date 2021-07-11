@@ -31,6 +31,10 @@ namespace Common.DataTransferObjects
         public string Autor { get; set; }
         public Nullable<int> ID_Portfolio { get; set; }
         public int Portada { get; set; }
+        public string Imagen { get; set; }
+        public string Texto { get; set; }
+        public string P { get; set; }
+        public ICollection<string> paginas { get; set; }
 
         public  ICollection<DTOComentarios> Comentarios { get; set; }
         public  ICollection<DTOEtiquetas> Etiquetas { get; set; }

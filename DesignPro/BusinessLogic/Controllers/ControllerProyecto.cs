@@ -32,7 +32,8 @@ namespace BusinessLogic.Controllers
                 using (design_proEntities context = new design_proEntities())
                 {
                     ProyectoRepository ProyectoRepositorio = new ProyectoRepository(context);
-                    UsuariosRepository usuariosRepositorio = new UsuariosRepository(context); 
+                    UsuariosRepository usuariosRepositorio = new UsuariosRepository(context);
+                    DTOP.Portada = CrearVisual(DTOP.P);
                     if (ProyectoRepositorio.Any(DTOP.Titulo))
                     {
                         throw new Exception("El proyecto ya existe.");
@@ -53,9 +54,9 @@ namespace BusinessLogic.Controllers
                     }
                     foreach (var cat in pro)
                     {
-                        P.Proyecto_categorias.Add(UnirCategoria(cat.Categoria,DTOP.Titulo));
+                        P.Proyecto_categorias.Add(UnirCategoria(cat.Categoria, DTOP.Titulo));
                     }
-                    int ID = CrearPortfolio(P.Titulo);
+                    int ID = CrearPortfolio(DTOP.Titulo);
                     P.ID_Portfolio = ID;
                     Usuarios User = usuariosRepositorio.get(DTOP.Autor);
                     User.Proyecto.Add(P);
@@ -65,6 +66,55 @@ namespace BusinessLogic.Controllers
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+
+        public int CrearVisual(string base64)
+        {
+            using (design_proEntities context = new design_proEntities())
+            {
+                Visual v = new Visual();
+                VisualRepository visualRepository = new VisualRepository(context);
+                v.Path = base64;
+                v.Tipo = 0;
+                visualRepository.Create(v);
+                context.SaveChanges();
+                return v.ID;
+            }
+        }
+
+        public void CrearPaginas(DTOProyecto DTOP)
+        {
+            using (design_proEntities context = new design_proEntities())
+            {
+                ProyectoRepository proyectoRepository = new ProyectoRepository(context);
+                PortfolioRepository portfolioRepository = new PortfolioRepository(context);
+                PagesRepository pagesRepository = new PagesRepository(context);
+                VisualRepository visualRepository = new VisualRepository(context);
+                DTOProyecto dto = _mapper.MapToDTOProyecto(proyectoRepository.get(DTOP.Titulo));
+                int ID = dto.ID_Portfolio ?? default(int);
+                Pages page = new Pages();
+                Visual v = new Visual();
+                Portfolio P = portfolioRepository.get(ID);       
+                if(DTOP.Texto == null)
+                {
+                    v.Path = DTOP.Imagen;
+                    page.ID_Visual = v.ID;
+                    page.ID_Portfolio = ID;
+                    pagesRepository.Create(page);
+                    visualRepository.Create(v);
+                    context.SaveChanges();
+                    P.Pages.Add(page);
+                }
+                else
+                {
+                        page.ID_Portfolio = ID;
+                        page.Contenido = DTOP.Texto;
+                        pagesRepository.Create(page);
+                        context.SaveChanges();
+                        P.Pages.Add(page);
+                }
             }
         }
 
@@ -180,8 +230,31 @@ namespace BusinessLogic.Controllers
             using (design_proEntities context = new design_proEntities())
             {
                 ProyectoRepository repositorio = new ProyectoRepository(context);
+                VisualRepository visualRepository = new VisualRepository(context);
+                PortfolioRepository portfolioRepository = new PortfolioRepository(context);
                 var entity = repositorio.get(Titulo_proyecto);
-                return _mapper.MapToDTOProyecto(entity);   
+                var DTOentity = _mapper.MapToDTOProyecto(entity);
+                List<string> paginas = new List<string>();
+                Visual v = visualRepository.get(DTOentity.Portada);
+                DTOentity.P = v.Path;
+                Portfolio port = portfolioRepository.get(DTOentity.ID_Portfolio ?? default(int));
+                if(port != null)
+                {
+                    foreach (var p in port.Pages)
+                    {
+                        if (p.ID_Visual == null)
+                        {
+                            paginas.Add(p.Contenido);
+                        }
+                        else
+                        {
+                            Visual visual = visualRepository.get(p.ID_Visual ?? default(int));
+                            paginas.Add("Imagen" + visual.Path);
+                        }
+                    }
+                    DTOentity.paginas = paginas;
+                }
+                return DTOentity;   
             }
         }
 
@@ -203,14 +276,18 @@ namespace BusinessLogic.Controllers
             using (design_proEntities context = new design_proEntities())
             {
                 ProyectoRepository repositorio = new ProyectoRepository(context);
+                VisualRepository visualRepository = new VisualRepository(context);
                 var entityList = repositorio.GetAll();
                 foreach (var entity in entityList)
                 {
-                    proyectos.Add(_mapper.MapToDTOProyecto(entity));
+                    DTOProyecto DTOP = _mapper.MapToDTOProyecto(entity);
+                    Visual v = visualRepository.get(entity.Portada);
+                    DTOP.P = v.Path;
+                    proyectos.Add(DTOP);
                 }
             }
             return proyectos;
-                
+
         }
 
         public List<DTOProyecto> FilterByCat(string Nombre_Cat)

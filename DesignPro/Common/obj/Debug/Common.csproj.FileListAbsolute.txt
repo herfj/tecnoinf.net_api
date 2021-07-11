@@ -73,7 +73,6 @@ C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\bin\Debug\System.Me
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\bin\Debug\System.Text.Encodings.Web.xml
-C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\obj\Debug\Common.csprojAssemblyReference.cache
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\obj\Debug\Common.csproj.CopyComplete
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Common\obj\Debug\Common.dll

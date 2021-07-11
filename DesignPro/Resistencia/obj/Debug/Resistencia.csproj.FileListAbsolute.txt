@@ -53,7 +53,6 @@ C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\Enti
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.xml
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csprojAssemblyReference.cache
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CoreCompileInputs.cache
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.csproj.CopyComplete
 C:\Users\Administrador\Source\Repos\api_net\DesignPro\Resistencia\obj\Debug\Resistencia.dll

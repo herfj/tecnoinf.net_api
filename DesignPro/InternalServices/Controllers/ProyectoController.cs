@@ -19,7 +19,7 @@ namespace InternalServices.Controllers
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
-                if(DTOP.Titulo == null || DTOP.Autor == null || DTOP.Vistas == null || DTOP.Fecha_publicada == null || DTOP.Portada == null)
+                if(DTOP.Titulo == null || DTOP.Autor == null || DTOP.Vistas == null || DTOP.Fecha_publicada == null || DTOP.P == null)
                 {
                     return InternalServerError();
                 }
@@ -27,6 +27,32 @@ namespace InternalServices.Controllers
                 controller.CrearProyecto(DTOP);
                 response.Success = true;
                 return Ok(controller.GetProyect(DTOP.Titulo));
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Error = ex.ToString();
+                return InternalServerError();
+            }
+        }
+
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult CrearPage(DTOProyecto DTOP)
+        {
+            DTOBaseResponse response = new DTOBaseResponse();
+            try
+            {
+                if((DTOP.Texto == null && DTOP.Imagen == null) || DTOP.Titulo == null)
+                {
+                    return InternalServerError();
+                }
+                else
+                {
+                    ControllerProyecto controller = new ControllerProyecto();
+                    controller.CrearPaginas(DTOP);
+                    response.Success = true;
+                    return Ok(controller.GetProyect(DTOP.Titulo));
+                }
             }
             catch (Exception ex)
             {
@@ -58,17 +84,18 @@ namespace InternalServices.Controllers
                 return InternalServerError();
             }
         }
-
-        public IHttpActionResult GetProyect([System.Web.Http.FromBody] JObject GetContent)
+        
+       [System.Web.Http.HttpGet]
+        public IHttpActionResult GetProyect([System.Web.Http.FromUri] string titulo)
         {
             ControllerProyecto controller = new ControllerProyecto();
             try
             {
-                if(GetContent["Titulo"].ToString()==null)
+                if(string.IsNullOrEmpty(titulo))
                 {
                     return InternalServerError();
                 }
-                var Proyecto = controller.GetProyect(GetContent["Titulo"].ToString());
+                var Proyecto = controller.GetProyect(titulo);
 
                 if (Proyecto == null)
                 {
@@ -105,7 +132,7 @@ namespace InternalServices.Controllers
             }
         }
 
-
+        [System.Web.Http.HttpGet]
         public List<DTOProyecto> GetAllProyect()
         {
             ControllerProyecto controller = new ControllerProyecto();

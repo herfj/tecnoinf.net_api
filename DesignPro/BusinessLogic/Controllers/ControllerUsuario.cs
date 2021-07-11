@@ -47,7 +47,7 @@ namespace BusinessLogic.Controllers
                 {
                     UsuariosRepository repositorio = new UsuariosRepository(context);
                     Usuarios entity = repositorio.get(DTOUser.Email);
-                    int ID = CrearVisual(DTOUser.imagen, DTOUser.Email);
+                    int ID = CrearVisual(DTOUser.imagen);
 
                     entity.Nombre = DTOUser.Nombre;
                     entity.Apellido = DTOUser.Apellido;
@@ -68,7 +68,7 @@ namespace BusinessLogic.Controllers
 
         }
 
-        public int CrearVisual(string base64, string email)
+        public int CrearVisual(string base64)
         {
             using (design_proEntities context = new design_proEntities())
             {
@@ -131,8 +131,16 @@ namespace BusinessLogic.Controllers
             using (design_proEntities context = new design_proEntities())
             {
                 UsuariosRepository repositorio = new UsuariosRepository(context);
+                VisualRepository visual = new VisualRepository(context);
                 var entity = repositorio.get(Email);
-                return _mapper.MapToDTOUsuarios(entity);   
+                var DTOentity = _mapper.MapToDTOUsuarios(entity);
+                int dou = DTOentity.ID_Visual ?? default(int);
+                var v = visual.get(dou);
+                if (v != null) { 
+                DTOentity.imagen = v.Path;
+                }
+
+                return DTOentity;   
             }
         }
         

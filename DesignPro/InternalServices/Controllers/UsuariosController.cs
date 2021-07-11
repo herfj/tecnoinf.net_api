@@ -69,7 +69,7 @@ namespace InternalServices.Controllers
            
         }
 
-        [HttpPost]
+        [HttpPut]
         public IHttpActionResult UpdateUsuario(DTOUsuarios Usuario)
         {
             DTOBaseResponse response = new DTOBaseResponse();
