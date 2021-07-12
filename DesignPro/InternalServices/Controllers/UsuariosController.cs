@@ -258,17 +258,17 @@ namespace InternalServices.Controllers
             }
         }
         [HttpGet]
-        public IHttpActionResult EsteLeDioLikeONo([FromBody]JObject EsteLeDioLikeONoContent)
+        public IHttpActionResult EsteLeDioLikeONo([FromUri]string Email, [FromUri] string Titulo)
         {
             DTOBaseResponse response = new DTOBaseResponse();
             try
             {
-                if(EsteLeDioLikeONoContent["Email"].ToString() == null || EsteLeDioLikeONoContent["Titulo"].ToString() == null)
+                if(Email == null || Titulo == null)
                 {
                     return InternalServerError();
                 }
                 ControllerUsuario controller = new ControllerUsuario();
-                response.Success = controller.EsteDioLikeONo(EsteLeDioLikeONoContent["Email"].ToString(), EsteLeDioLikeONoContent["Titulo"].ToString());
+                response.Success = controller.EsteDioLikeONo(Email, Titulo);
                 return Ok(response);
             }
             catch (Exception ex)

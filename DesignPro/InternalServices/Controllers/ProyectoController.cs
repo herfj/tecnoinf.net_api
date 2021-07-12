@@ -185,26 +185,26 @@ namespace InternalServices.Controllers
             return lstDTO;
         }
         [System.Web.Http.HttpGet]
-        public IHttpActionResult FilterByCategory(DTOCategoria cat)
+        public IHttpActionResult FilterByCategory([System.Web.Http.FromUri] string cat)
         {
-            if(cat.Nombre==null)
+            if(cat==null)
             {
                 return InternalServerError();
             }
             ControllerProyecto controller = new ControllerProyecto();
-            List<DTOProyecto> lstDTO = controller.FilterByCat(cat.Nombre);
+            List<DTOProyecto> lstDTO = controller.FilterByCat(cat);
 
             return Ok(lstDTO);
         }
         [System.Web.Http.HttpGet]
-        public IHttpActionResult FilterByLikes(DTOUsuarios user)
+        public IHttpActionResult FilterByLikes([System.Web.Http.FromUri] string Email)
         {
-            if(user.Email == null)
+            if (string.IsNullOrEmpty(Email))
             {
                 return InternalServerError();
             }
             ControllerProyecto controller = new ControllerProyecto();
-            List<DTOProyecto> lstDTO = controller.FilterByLike(user.Email);
+            List<DTOProyecto> lstDTO = controller.FilterByLike(Email);
 
             return Ok(lstDTO);
         }
@@ -232,7 +232,7 @@ namespace InternalServices.Controllers
         }
 
         [System.Web.Http.HttpGet]
-        public IHttpActionResult SearchBy(string busqueda)
+        public IHttpActionResult SearchBy([System.Web.Http.FromUri] string busqueda)
 
         {   
             try{

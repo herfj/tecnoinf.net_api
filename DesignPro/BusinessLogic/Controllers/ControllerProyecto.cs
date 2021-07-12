@@ -503,6 +503,7 @@ namespace BusinessLogic.Controllers
                 {
                     if ((proyecto.Titulo.Contains(Buscar)) || (proyecto.Autor.Contains(Buscar)))
                     {
+                        proyectito = _mapper.MapToDTOProyecto(proyecto);
                         Visual v = visualRepository.get(proyecto.Portada);
                         proyectito.P = v.Path;
                         proyectito.likes = proyecto.Usuarios1.Count();
@@ -517,6 +518,7 @@ namespace BusinessLogic.Controllers
                         if (!lista.Contains(proyectito))
                         {
                             Proyecto proyecto = repositorio.get(herra.Titulo_proyecto);
+                           
                             Visual v = visualRepository.get(proyecto.Portada);
                             proyectito.P = v.Path;
                             proyectito.likes = proyecto.Usuarios1.Count();

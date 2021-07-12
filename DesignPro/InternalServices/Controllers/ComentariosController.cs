@@ -34,15 +34,15 @@ namespace InternalServices.Controllers
                 return InternalServerError();
             }
         }
-    
-        public IHttpActionResult GetComentariosFromPJ(DTOProyecto pj)
+        [HttpGet]
+        public IHttpActionResult GetComentariosFromPJ([FromUri] string Titulo)
         {
-            if(pj.Titulo == null)
+            if(Titulo == null)
             {
                 return InternalServerError();
             }
             ControllerComentarios controller = new ControllerComentarios();
-            List<DTOComentarios> lstDTO = controller.GetComentariosFromProyecto(pj.Titulo);
+            List<DTOComentarios> lstDTO = controller.GetComentariosFromProyecto(Titulo);
 
             return Ok(lstDTO);
         }
